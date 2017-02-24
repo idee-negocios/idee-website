@@ -1,0 +1,26 @@
+.button {
+  text-align: center;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.button {
+  text-decoration: none;
+  color: white;
+  background: #F2385A;
+  position: relative;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0px 15px 0px 0px #f02046, 0px 0px 20px 0px #bbb;
+  // transition: all 0.2s;
+}
+
+.button {
+  background-color: #3498DB;
+  box-shadow: 0px 8px 0px 0px #258cd1;
+}
+.button:hover {
+  top: 4px;
+  box-shadow: 0px 4px 0px 0px #258cd1;
+}
