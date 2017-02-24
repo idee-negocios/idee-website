@@ -1,17 +1,19 @@
 <template>
   <div id="form-selector">
+    <figure @click="select('new-business')">
 
-    <a class="button"
-      :disabled="selected === 'new-business'"
-      @click="select('new-business')">
-      Quiero emprender
-    </a>
+      <div>
+        <span>Quiero emprender</span>
+        <span>¡Emprendamos!</span>
+      </div>
+    </figure>
 
-    <a class="button"
-      :disabled="selected === 'existing-business'"
-      @click="select('existing-business')">
-      Soy emprendedor
-    </a>
+    <figure @click="select('existing-business')">
+      <div>
+        <span>Tengo una empresa</span>
+        <span>¡Emprendamos!</span>
+      </div>
+    </figure>
 
   </div>
 </template>
