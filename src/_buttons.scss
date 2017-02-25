@@ -1,33 +1,7 @@
-.button {
-  text-align: center;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
-.button {
-  text-decoration: none;
-  color: white;
-  background: #F2385A;
-  position: relative;
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
-  border-radius: 10px;
-  box-shadow: 0px 15px 0px 0px #f02046, 0px 0px 20px 0px #bbb;
-  // transition: all 0.2s;
-}
-
-.button {
-  background-color: #3498DB;
-  box-shadow: 0px 8px 0px 0px #258cd1;
-}
-.button:hover {
-  top: 4px;
-  box-shadow: 0px 4px 0px 0px #258cd1;
-}
-
 // Buttons
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-$color: 555;
+$color: "#fff";
+$background-color: "#555";
 /* rgb(random(150), */
 /* random(150), */
 /* random(150)); */
@@ -36,8 +10,8 @@ figure {
     width: 300px;
     height: 60px;
     cursor: pointer;
-    /* perspective: 500px; */
-    /* -webkit-perspective: 500px; */
+    // perspective: 600px;
+    // -webkit-perspective: 600px;
     /* float: left; */
     display: inline-block;
     position: relative;
@@ -56,7 +30,7 @@ figure {
         height: 100%;
         position: absolute;
         box-sizing: border-box;
-        border: 5px solid #fff;
+        border: 5px solid #000;
         font-family: 'Source Sans Pro', sans-serif;
         line-height: 50px;
         font-size: 17pt;
@@ -64,16 +38,17 @@ figure {
         text-transform: uppercase;
         top: 0;
         left: 0;
+        font-weight: bold;
 
         &:nth-child(1) {
-          color: #fff;
+          color: #000;
           transform: translate3d(0, 0, 30px);
           -webkit-transform: translate3d(0, 0, 30px);
         }
 
         &:nth-child(2) {
-          color: $color;
-          background: #fff;
+          color: #fff;
+          background: #000;
           transform: rotateX(90deg) translate3d(0, 0, 30px);
           -webkit-transform: rotateX(90deg) translate3d(0, 0, 30px);
         }

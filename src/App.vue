@@ -49,24 +49,23 @@ export default {
     text-align: center;
 
     header {
-      padding: 2rem 0;
       text-align: center;
       margin-bottom: 1rem;
 
       .title {
-        font-size: 3rem;
+        font-size: 4rem;
         color: #000;
         font-weight: bold;
-        font-family: 'Montserrat', serif;
+        font-family: 'TheSans Light', serif;
         line-height: 1.5;
-        letter-spacing: 5px;
+        letter-spacing: 3px;
       }
 
       .subtitle {
         font-size: 1rem;
-        color: #333;
+        color: #000;
         font-weight: bold;
-        font-family: 'Montserrat', serif;
+        font-family: 'TheSans Light', serif;
         text-transform: uppercase;
         letter-spacing: 1px;
       }
