@@ -6,9 +6,6 @@ import './global.scss';
 import Vue from 'vue';
 import App from './App';
 
-import Background from './background';
-Background();
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

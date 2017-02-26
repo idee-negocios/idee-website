@@ -1,12 +1,18 @@
 import Trianglify from 'trianglify';
+import $ from 'jquery';
 
-export default function() {
-  const backgroundEl = document.getElementById('background');
+export default function(width, height) {
+  const backgroundEl = $('#background');
 
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+  const wrapper = $('body');
+
+  width = width || wrapper.width();
+  height = height || wrapper.height();
+
   const x_colors = 'Reds';
 
   const pattern = Trianglify({width, height, x_colors});
-  backgroundEl.appendChild(pattern.canvas());
+
+  backgroundEl.empty();
+  backgroundEl.append(pattern.canvas());
 }

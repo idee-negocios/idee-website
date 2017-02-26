@@ -2,8 +2,9 @@
   <div id="app">
 
     <header>
-      <h1 class="title">IDEE</h1>
-      <h2 class="subtitle">Identidad y Desarrollo para Empresas y Emprendimientos</h2>
+      <img alt="Identidad y Desarrollo para Empresas y Emprendimientos" src="/static/logo2.svg" id="logo" />
+      <!-- <h1 class="title">IDEE</h1> -->
+      <!-- <h2 class="subtitle">Identidad y Desarrollo para Empresas y Emprendimientos</h2> -->
     </header>
 
     <main>
@@ -12,6 +13,7 @@
       <transition name="slide-fade">
         <ContactForm v-if="formSelected" :formSelected="formSelected"></ContactForm>
       </transition>
+
     </main>
 
   </div>
@@ -20,6 +22,10 @@
 <script>
 import FormSelector from './components/FormSelector';
 import ContactForm from './components/ContactForm';
+
+import $ from 'jquery';
+
+import background from './background';
 
 export default {
   name: 'app',
@@ -36,6 +42,12 @@ export default {
     onSelect(selection) {
       this.formSelected = selection;
     }
+  },
+  mounted() {
+    background();
+  },
+  updated() {
+    background();
   }
 }
 </script>
@@ -51,6 +63,12 @@ export default {
     header {
       text-align: center;
       margin-bottom: 1rem;
+
+      #logo {
+        width: auto;
+        height: 400px;
+        margin-bottom: 2rem;
+      }
 
       .title {
         font-size: 4rem;

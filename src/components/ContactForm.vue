@@ -1,14 +1,14 @@
 <template>
   <div id="contact-form">
 
-    <form @submit.prevent="onSubmit">
+    <form v-if="!submitted" @submit.prevent="onSubmit">
       <div class="input-container">
         <input id="name" name="name" type="text" v-model="name" required />
         <label for="name">Nombre</label>
         <div class="bar"></div>
       </div>
       <div class="input-container">
-        <input id="email" name="email" type="text" v-model="email" required/>
+        <input id="email" name="email" type="text" v-model="email" required />
         <label for="email">E-Mail</label>
         <div class="bar"></div>
       </div>
@@ -18,7 +18,10 @@
         <div class="bar"></div>
       </div>
 
-      <textarea cols="30" id="" name="message" rows="10" v-model="message"></textarea>
+      <div class="textarea-container">
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" v-model="message" required></textarea>
+      </div>
 
       <div class="button-container">
         <button id="submit" type="submit">
@@ -27,10 +30,24 @@
       </div>
     </form>
 
+    <div class="thanks" v-if="submitted">
+      <p>
+        Gracias por contactarte con nosotros.
+      </p>
+      <p>
+        En breve nos comunicaremos con vos.
+      </p>
+    </div>
+
+    <footer class="contact">
+      <p>ideenegocios@gmail.com</p>
+    </footer>
+
   </div>
 </template>
 
 <script>
+import send from '../db';
 
 export default {
   name: 'contact-form',
@@ -40,14 +57,24 @@ export default {
       name: '',
       email: '',
       phone: '',
-      message: ''
-
+      message: '',
+      submitted: false
     };
   },
   methods: {
     onSubmit() {
-      console.log('Submit');
-      console.log(this.message);
+      const data = {
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        message: this.message,
+        type: this.formSelected
+      };
+      console.log(data);
+
+      // Send data
+
+      this.submitted = true;
     }
   }
 }
@@ -61,14 +88,15 @@ export default {
     width: 50%;
     margin-left: 25%;
     padding: 1rem 0;
+    position: relative;
 
     form {
       width: 100%;
-      padding: 2rem;
+      padding: 0 4rem;
 
       .input-container {
         position: relative;
-        margin: 0 60px 50px;
+        margin: 20px 0;
 
         input {
           outline: none;
@@ -79,7 +107,7 @@ export default {
           height: 60px;
           border: 0;
           color: #eee;
-          font-size: 24px;
+          font-size: 1.5rem;
           font-weight: 400;
 
           &:focus {
@@ -109,9 +137,9 @@ export default {
           top: 0;
           left: 0;
           color: #aaa;
-          font-size: 24px;
+          font-size: 1.2rem;
           font-weight: 300;
-          line-height: 60px;
+          line-height: 90px;
           transition: all 0.2s ease;
         }
 
@@ -143,28 +171,79 @@ export default {
         }
       }
 
-      textarea {
-        background: none;
-        border: 1px solid #555;
-        margin-bottom: 1rem;
-        width: 100%;
-        padding: 0 60px 50px;
+      .textarea-container {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        text-align: left;
+
+        label {
+          color: #aaa;
+          font-size: 1.2rem;
+          font-weight: 300;
+          line-height: 1;
+          transition: all 0.2s ease;
+        }
+
+        textarea {
+          margin-top: 0.5rem;
+          background: none;
+          border: 1px solid #444;
+          border-bottom: 1px solid #555;
+          height: 80px;
+          outline: none;
+          width: 100%;
+          font-size: 1.5rem;
+          color: #fff;
+          padding: 1rem;
+
+          &:focus {
+            border-bottom: 2px solid #a00;
+            transition: .5s ease;
+            height: 200px;
+          }
+        }
       }
 
 
       .button-container {
+        margin-bottom: 1rem;
+
         #submit {
           padding: 1rem 1rem 0.5rem 1rem;
           background-color: #da3127;
           color: #fff;
           font-weight: bold;
           font-family: "TheSans Light";
-          font-size: 2rem;
+          font-size: 1.5rem;
           border: none;
           width: 100%;
           text-align: center;
+          text-transform: uppercase;
+          transition: all .5s ease;
+          border-radius: 3px;
+
+          &:hover {
+            background-color: #dd3127;
+            cursor: pointer;
+            box-shadow: 0 4px 10px 4px rgba(255, 255, 255, 0.1);
+          }
         }
       }
+    }
+
+    .thanks {
+      padding: 0 2rem;
+
+      p {
+        color: #fff;
+        font-size: 1.5rem;
+        margin: 1rem 0;
+      }
+    }
+
+    .contact {
+      color: #555;
+      font-size: 0.8rem;
     }
   }
 </style>
