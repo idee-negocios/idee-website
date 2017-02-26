@@ -2,7 +2,7 @@
   <div id="app">
 
     <header>
-      <img alt="Identidad y Desarrollo para Empresas y Emprendimientos" src="/static/logo2.svg" id="logo" />
+      <img alt="Identidad y Desarrollo para Empresas y Emprendimientos" src="/static/logo.svg" id="logo" />
       <!-- <h1 class="title">IDEE</h1> -->
       <!-- <h2 class="subtitle">Identidad y Desarrollo para Empresas y Emprendimientos</h2> -->
     </header>

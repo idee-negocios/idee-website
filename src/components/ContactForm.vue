@@ -195,7 +195,7 @@ export default {
           background: none;
           border: 1px solid #444;
           border-bottom: 1px solid #555;
-          height: 80px;
+          height: 200px;
           outline: none;
           width: 100%;
           font-size: 1.5rem;
@@ -205,7 +205,6 @@ export default {
           &:focus {
             border-bottom: 2px solid #a00;
             transition: .5s ease;
-            height: 200px;
           }
         }
       }
