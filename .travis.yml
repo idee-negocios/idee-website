@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - node
+
+sudo: false
+
+branches:
+  only:
+    - master
+
+before_install:
+  - npm install -g surge
+  - npm install -g vue-cli
+
+install:
+  - npm install
+
+script:
+  - npm run build
+
+after_success:
+  - surge -p ./dist --domain ideenegocios.com.ar
