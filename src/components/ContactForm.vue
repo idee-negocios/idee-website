@@ -32,7 +32,7 @@
 
     <div class="thanks" v-if="submitted">
       <p>
-        Gracias por contactarte con nosotros.
+        Gracias {{name}} por contactarte con nosotros.
       </p>
       <p>
         En breve nos comunicaremos con vos.
@@ -48,6 +48,10 @@
 
 <script>
 import send from '../db';
+import moment from 'moment';
+import 'moment/locale/es';
+
+moment.locale('es');
 
 export default {
   name: 'contact-form',
@@ -68,11 +72,13 @@ export default {
         email: this.email,
         phone: this.phone,
         message: this.message,
-        type: this.formSelected
+        type: this.formSelected,
+        date: moment().format('MMMM Do YYYY, h:mm:ss a')
       };
       console.log(data);
 
       // Send data
+      send(data);
 
       this.submitted = true;
     }
@@ -242,8 +248,9 @@ export default {
     }
 
     .contact {
-      color: #555;
+      color: #aaa;
       font-size: 0.8rem;
+      text-shadow: 0 0 1px #000;
     }
   }
 </style>
