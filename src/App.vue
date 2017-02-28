@@ -3,15 +3,12 @@
 
     <header>
       <img alt="Identidad y Desarrollo para Empresas y Emprendimientos" src="/static/logo.svg" id="logo" />
-      <!-- <h1 class="title">IDEE</h1> -->
-      <!-- <h2 class="subtitle">Identidad y Desarrollo para Empresas y Emprendimientos</h2> -->
     </header>
 
     <main>
-      <FormSelector v-if="!formSelected" @select="onSelect"></FormSelector>
-
       <transition name="slide-fade">
-        <ContactForm v-if="formSelected" :formSelected="formSelected"></ContactForm>
+        <FormSelector v-if="!formSelected" @select="onSelect"></FormSelector>
+        <ContactForm v-if="formSelected" :formSelected="formSelected" @goback="goToRoot"></ContactForm>
       </transition>
 
     </main>
@@ -41,6 +38,10 @@ export default {
   methods: {
     onSelect(selection) {
       this.formSelected = selection;
+    },
+    goToRoot() {
+      console.log('root');
+      this.formSelected = null;
     }
   },
   mounted() {
@@ -69,24 +70,8 @@ export default {
         height: 400px;
         margin-bottom: 2rem;
       }
-
-      .title {
-        font-size: 4rem;
-        color: #000;
-        font-weight: bold;
-        font-family: 'TheSans Light', serif;
-        line-height: 1.5;
-        letter-spacing: 3px;
-      }
-
-      .subtitle {
-        font-size: 1rem;
-        color: #000;
-        font-weight: bold;
-        font-family: 'TheSans Light', serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
     }
   }
+
+
 </style>

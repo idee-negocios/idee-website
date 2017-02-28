@@ -1,6 +1,8 @@
 <template>
   <div id="contact-form">
 
+    <button @click="goBack" class="goback-button"><img alt="" src="/static/left-arrow.svg"/></button>
+
     <form v-if="!submitted" @submit.prevent="onSubmit">
       <div class="input-container">
         <input id="name" name="name" type="text" v-model="name" required />
@@ -81,6 +83,9 @@ export default {
       send(data);
 
       this.submitted = true;
+    },
+    goBack() {
+      this.$emit('goback');
     }
   }
 }
@@ -96,6 +101,23 @@ export default {
     padding: 1rem 0;
     position: relative;
 
+    .goback-button {
+      background-color: rgba(255, 255, 255, 0);
+      border: none;
+      outline: none;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      right: 0;
+      top: -50px;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
     form {
       width: 100%;
       padding: 0 4rem;
@@ -103,6 +125,10 @@ export default {
       .input-container {
         position: relative;
         margin: 20px 0;
+
+        // &:first-child {
+        //   margin-top: 0;
+        // }
 
         input {
           outline: none;
@@ -250,6 +276,29 @@ export default {
       color: #aaa;
       font-size: 0.8rem;
       text-shadow: 0 0 1px #000;
+
+      p {
+        padding: 1rem 0;
+      }
     }
   }
+
+@media screen and (max-width: 768px) {
+  #contact-form {
+    margin: 1rem 0;
+    width: 100%;
+    padding: 0.5rem 0;
+
+    form {
+      padding: 0 1.2rem;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #contact-form {
+    width: 75%;
+    margin-left: 12.5%;
+  }
+}
 </style>

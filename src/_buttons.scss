@@ -7,7 +7,6 @@ figure {
     cursor: pointer;
     // perspective: 600px;
     // -webkit-perspective: 600px;
-    /* float: left; */
     display: inline-block;
     position: relative;
     margin-right: 3px;
@@ -54,13 +53,3 @@ figure {
       transform: rotateX(-90deg);
     }
 }
-
-/* body { */
-/*     background: $color; */
-/*     position: absolute; */
-/*     left: 50%; */
-/*     top: 50%; */
-/*     transform: translate(-50%, -50%); */
-/*     -webkit-transform: translate(-50%, -50%); */
-/*     margin: 0; */
-/* } */
