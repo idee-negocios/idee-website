@@ -6,11 +6,8 @@
     </header>
 
     <main>
-      <transition name="slide-fade">
-        <FormSelector v-if="!formSelected" @select="onSelect"></FormSelector>
-        <ContactForm v-if="formSelected" :formSelected="formSelected" @goback="goToRoot"></ContactForm>
-      </transition>
-
+      <FormSelector v-if="!formSelected" @select="onSelect"></FormSelector>
+      <ContactForm v-if="formSelected" :formSelected="formSelected" @goback="goToRoot"></ContactForm>
     </main>
 
   </div>
@@ -40,8 +37,8 @@ export default {
       this.formSelected = selection;
     },
     goToRoot() {
-      console.log('root');
       this.formSelected = null;
+      background();
     }
   },
   mounted() {
