@@ -84,15 +84,15 @@ export default {
 
       this.submitted = true;
 
-      this.$emit('submitted');
+      // Analytics
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'Formulario',
+        eventAction: 'consulta',
+        eventLabel: this.formSelected
+      });
 
-      // TODO: Analytics
-      // ga('send', {
-      //   hitType: 'event',
-      //   eventCategory: 'Videos',
-      //   eventAction: 'play',
-      //   eventLabel: 'Fall Campaign'
-      // });
+      this.$emit('submitted');
     },
     goBack() {
       this.$emit('goback');
