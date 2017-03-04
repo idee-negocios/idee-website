@@ -1,12 +1,16 @@
 <template>
   <div id="app">
 
-    <header>
-      <img alt="Identidad y Desarrollo para Empresas y Emprendimientos" src="/static/logo.svg" id="logo" />
-    </header>
+    <img alt="Identidad y Desarrollo para Empresas y Emprendimientos" src="/static/logo.svg" id="logo" />
 
     <main>
-      <FormSelector v-if="!formSelected" @select="onSelect"></FormSelector>
+      <Quotes></Quotes>
+
+      <FormSelector
+          v-if="!formSelected"
+          @select="onSelect">
+      </FormSelector>
+
       <ContactForm
           v-if="formSelected"
           :formSelected="formSelected"
@@ -21,6 +25,7 @@
 <script>
 import FormSelector from './components/FormSelector';
 import ContactForm from './components/ContactForm';
+import Quotes from './components/Quotes';
 
 import $ from 'jquery';
 
@@ -35,7 +40,8 @@ export default {
   },
   components: {
     FormSelector,
-    ContactForm
+    ContactForm,
+    Quotes
   },
   methods: {
     onSelect(selection) {
@@ -66,15 +72,10 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
 
-    header {
-      text-align: center;
-      margin-bottom: 1rem;
-
-      #logo {
-        width: auto;
-        height: 400px;
-        margin-bottom: 2rem;
-      }
+    #logo {
+      width: auto;
+      height: 400px;
+      margin-bottom: 3rem;
     }
   }
 
