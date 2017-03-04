@@ -7,7 +7,12 @@
 
     <main>
       <FormSelector v-if="!formSelected" @select="onSelect"></FormSelector>
-      <ContactForm v-if="formSelected" :formSelected="formSelected" @goback="goToRoot"></ContactForm>
+      <ContactForm
+          v-if="formSelected"
+          :formSelected="formSelected"
+          @goback="goToRoot"
+          @submitted="submitted">
+      </ContactForm>
     </main>
 
   </div>
@@ -39,6 +44,9 @@ export default {
     goToRoot() {
       this.formSelected = null;
       background();
+    },
+    submitted() {
+      $("html, body").animate({ scrollTop: 0 }, "slow");
     }
   },
   mounted() {

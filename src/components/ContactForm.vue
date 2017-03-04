@@ -83,6 +83,16 @@ export default {
       send(data);
 
       this.submitted = true;
+
+      this.$emit('submitted');
+
+      // TODO: Analytics
+      // ga('send', {
+      //   hitType: 'event',
+      //   eventCategory: 'Videos',
+      //   eventAction: 'play',
+      //   eventLabel: 'Fall Campaign'
+      // });
     },
     goBack() {
       this.$emit('goback');
