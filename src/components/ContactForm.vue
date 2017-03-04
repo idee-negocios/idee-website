@@ -89,7 +89,8 @@ export default {
         hitType: 'event',
         eventCategory: 'Formulario',
         eventAction: 'consulta',
-        eventLabel: this.formSelected
+        eventLabel: this.formSelected,
+        eventValue: 1
       });
 
       this.$emit('submitted');
