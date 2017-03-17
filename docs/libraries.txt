@@ -1,0 +1,7 @@
+Touch gestures:
+http://hammerjs.github.io/
+
+Scroll:
+http://www.sequencejs.com/
+http://alvarotrigo.com/fullPage/
+http://imakewebthings.com/deck.js/
